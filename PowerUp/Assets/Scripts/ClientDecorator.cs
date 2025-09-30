@@ -4,6 +4,7 @@ public class ClientDecorator : MonoBehaviour
 {
     private GunWeapon _gunWeapon;
     private bool _isAttached;
+    private int attachNum;
 
     void Start()
     {
@@ -14,9 +15,31 @@ public class ClientDecorator : MonoBehaviour
     {
         if (!_isAttached)
         {
-            if (GUILayout.Button("Put Attachments On"))
+            if (GUILayout.Button("Add Rate"))
             {
-                _gunWeapon.Decorate();
+                attachNum = 1;
+                _gunWeapon.Decorate(attachNum);
+                _isAttached = !_isAttached;
+            }
+
+            if (GUILayout.Button("Add Strength"))
+            {
+                attachNum = 2;
+                _gunWeapon.Decorate(attachNum);
+                _isAttached = !_isAttached;
+            }
+
+            if (GUILayout.Button("Add Amount"))
+            {
+                attachNum = 3;
+                _gunWeapon.Decorate(attachNum);
+                _isAttached = !_isAttached;
+            }
+
+            if (GUILayout.Button("Add Range"))
+            {
+                attachNum = 4;
+                _gunWeapon.Decorate(attachNum);
                 _isAttached = !_isAttached;
             }
         }
@@ -25,6 +48,7 @@ public class ClientDecorator : MonoBehaviour
         {
             if (GUILayout.Button("Reset Weapon"))
             {
+                attachNum = 0;
                 _gunWeapon.Reset();
                 _isAttached = !_isAttached;
             }
